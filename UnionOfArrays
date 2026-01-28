@@ -1,0 +1,7 @@
+class Solution:    
+    def findUnion(self, a, b):
+        
+        a.extend(b)
+        liste1= set(a)
+        return list(liste1)
+        
