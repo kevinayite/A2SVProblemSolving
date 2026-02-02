@@ -1,0 +1,19 @@
+#User function Template for python3
+from collections import Counter
+
+class Solution:
+    #Function to check if a is a subset of b.
+    def isSubset(self, a, b):
+        
+        list_a = Counter(a)
+        list_b = Counter(b)
+        
+        for key, value in list_b.items():
+            if key in list_a and value <= list_a[key]:
+                continue
+            else: 
+                return False
+        return True
+        
+        
+        
