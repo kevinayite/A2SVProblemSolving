@@ -1,0 +1,23 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+my_dict = {}
+n = int(input())
+for _ in range(n):
+    name, number = input().split()
+    name = str(name)
+    number = str(number)
+    my_dict[name] = number
+    # here we are using while true because we need that the code run forever
+    # except when it reaches end of file
+while True:
+    try:
+        search = input().strip()
+        if search in my_dict:
+            print( search + "="+my_dict[search])
+        else:
+            print("Not found")
+    except EOFError: # As here we are at the emd of the file, we break
+        break
+
+        
+    
+    
