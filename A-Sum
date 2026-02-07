@@ -1,0 +1,7 @@
+n = int(input())
+for i in range(n):
+    a,b,c = map(int, input().split())
+    if sum([a,b]) == c or sum([a,c]) ==b or sum([b,c]) == a:
+        print("YES")
+    else:
+        print("NO")

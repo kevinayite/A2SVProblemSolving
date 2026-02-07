@@ -1,0 +1,9 @@
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        result = []
+        for word in words: 
+            if set(word.lower())<=set("qwertyuiop") or set(word.lower())<=set("asdfghjkl") or set(word.lower())<=set("zxcvbnm"):
+                result.append(word)
+        return result
+
+        

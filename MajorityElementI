@@ -1,0 +1,18 @@
+from collections import Counter
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """    
+
+        result = []
+        occurencce = Counter(nums)
+        for key, value in occurencce.items():
+            if value > len(nums)//3:
+                result.append(key)
+        return result   
+
+
+        
+        

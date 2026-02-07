@@ -1,0 +1,21 @@
+if __name__ == '__main__':
+    arr = []
+    N = int(input())
+    
+    for _ in range(N): 
+        text_divided = input().split()
+        if text_divided[0] == "insert":
+            arr.insert(int(text_divided[1]), int(text_divided[2]))
+        elif text_divided[0] == "print":
+            print(arr)
+        elif text_divided[0] == "remove":
+            arr.remove(int(text_divided[1]))    
+        elif text_divided[0] == "append":
+            arr.append(int(text_divided[1]))    
+        elif text_divided[0] == "sort":
+            arr.sort()
+        elif text_divided[0] == "pop":
+            arr.pop()      
+        elif text_divided[0] == "reverse":
+            arr.reverse()
+                
