@@ -1,0 +1,5 @@
+https://medium.com/@arjundahal/mutability-and-immutability-in-python-510706276c7a
+
+https://realpython.com/pointers-in-python/
+
+https://www.geeksforgeeks.org/python/list-methods-python/
