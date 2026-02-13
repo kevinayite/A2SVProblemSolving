@@ -1,0 +1,12 @@
+class Solution:
+    def isCovered(self, ranges: List[List[int]], left: int, right: int) -> bool:
+        for i in range(left, right+1):
+            found = False
+            for row in ranges:
+                if (row[0]<= i and row[1]>= i):
+                    found = True
+                    break
+            if not(found):
+                return False
+        return True
+        
