@@ -1,0 +1,24 @@
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        my_dict = {}
+        answer = []
+        for winner, looser in matches:
+            if winner not in my_dict:
+                my_dict[winner] = 0
+            my_dict[looser] = my_dict.get(looser, 0) + 1
+        answer1 = []
+        answer2 = []
+        for player, loss_count in my_dict.items():
+            if loss_count == 0:
+                answer1.append(player)
+            elif loss_count == 1:
+                answer2.append(player)
+        answer1.sort()
+        answer2.sort()
+        answer = [answer1, answer2]
+        return answer
+        
+
+            
+        
+        
