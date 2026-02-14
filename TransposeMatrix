@@ -1,0 +1,9 @@
+class Solution:
+    def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+        
+        zipped_rows = zip(*matrix)
+        transposed_list = []
+        for row in zipped_rows:
+            transposed_list.append(list(row))
+        return transposed_list
+                
