@@ -1,0 +1,18 @@
+class Solution:
+    def pancakeSort(self, arr: List[int]) -> List[int]:
+        n = len(arr)
+        flip = []
+        for curr_position in range(n, 1, -1):
+            max_index = arr[:curr_position].index(max(arr[:curr_position]))
+            if max_index == curr_position - 1:
+                continue
+            if max_index !=0:
+                flip.append(max_index + 1)
+                arr[:max_index + 1] = reversed(arr[:max_index + 1])
+            flip.append(curr_position)
+            arr[:curr_position] = reversed(arr[:curr_position])
+        return flip
+         
+
+        
+        
