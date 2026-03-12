@@ -1,0 +1,17 @@
+class Solution:
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        max_sum = float('-inf')
+        windows_sum = 0
+        for i in range(k):
+            windows_sum += nums[i]
+        max_sum = windows_sum
+        left = 0
+        for right in range(k, len(nums)):
+            windows_sum += nums[right]
+            windows_sum -= nums[left]
+            max_sum = max(max_sum, windows_sum)
+            left +=1
+        return max_sum/k
+        
+            
+        
