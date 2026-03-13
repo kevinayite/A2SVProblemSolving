@@ -1,5 +1,4 @@
 sound = input()
-# print(sound)
 n = int(input())
 word= ""
 sounds = []
