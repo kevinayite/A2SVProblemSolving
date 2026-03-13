@@ -1,0 +1,24 @@
+from collections import Counter
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        my_dict = Counter(p)
+        result = []
+        windows = Counter()
+        left = 0
+        
+        for right in range(len(s)):
+            windows[s[right]] +=1 
+            if right - left + 1 > len(p):
+                windows[s[left]] -= 1
+                if windows[s[left]] == 0:
+                    del windows[s[left]]
+                left +=1
+            if windows == my_dict:
+                    result.append(left)
+        return result
+
+
+
+
+
+        
