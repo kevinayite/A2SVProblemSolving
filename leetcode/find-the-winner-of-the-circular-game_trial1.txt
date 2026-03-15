@@ -1,0 +1,11 @@
+class Solution:
+    def findTheWinner(self, n: int, k: int) -> int:
+        nums = list(range(1, n + 1))
+        start_index = 0
+        while len(nums) > 1:
+            removed_index = (start_index + k -1) % len(nums) # as the new inndex can go out of the range of the lenght that's why the modulo is used here
+            nums.pop(removed_index)
+            start_index = removed_index
+        return nums[0] # as if there is no one element remaining the loop will continue
+
+        
