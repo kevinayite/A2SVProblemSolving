@@ -1,0 +1,16 @@
+class Solution:
+    def checkSubarraySum(self, nums: List[int], k: int) -> bool:
+        reminders = {0:-1}
+        prefix_sum = 0
+
+        for i in range(len(nums)):
+            prefix_sum += nums[i]
+            reminder =  prefix_sum % k 
+
+            if reminder in reminders:
+                if i - reminders[reminder] >= 2:
+                    return True
+            else:
+                reminders[reminder] = i
+        
+        return False
