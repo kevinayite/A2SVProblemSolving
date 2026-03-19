@@ -1,0 +1,17 @@
+from collections import Counter
+class Solution:
+    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+        result = 0
+        cur_sum = 0
+        left = 0
+        seen = set()
+        for right in range(len(nums)):
+            while nums[right] in seen:
+                seen.remove(nums[left])
+                cur_sum -= nums[left]
+                left += 1
+            cur_sum += nums[right]
+            seen.add(nums[right])
+            result = max(result, cur_sum)
+        return result
+        
