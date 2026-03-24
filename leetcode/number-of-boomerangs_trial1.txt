@@ -1,0 +1,17 @@
+from collections import defaultdict
+class Solution:
+    def numberOfBoomerangs(self, points: List[List[int]]) -> int:
+        total = 0
+        for i in range(len(points)):
+            distance_count = defaultdict(int)
+            for j in range(len(points)):
+                if i == j:
+                    continue
+                dx = points[i][0] - points[j][0]
+                dy = points[i][1] - points[j][1]
+                dist = dx * dx + dy * dy
+                distance_count[dist] += 1
+            for k in distance_count.values():
+                total += k *(k - 1)
+        return total
+        
