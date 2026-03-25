@@ -1,14 +1,23 @@
-sound = input()
+password = input().strip()
 n = int(input())
-word= ""
-sounds = []
+
+a, b = password[0], password[1]
+
+end_with_a = False
+start_with_b = False
 for _ in range(n):
-    son = input()
-    sounds.append(son)
-for i in sounds:
-    word+=i
-print(word)
-if sound in word:
+    w = input().strip()
+
+    if w == password:
+        print("YES")
+        exit()
+
+    if w[1] == a:
+        end_with_a = True
+
+    if w[0] == b:
+        start_with_b = True
+if end_with_a and start_with_b:
     print("YES")
 else:
     print("NO")
