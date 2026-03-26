@@ -1,0 +1,25 @@
+from collections import Counter
+class Solution:
+    def balancedString(self, s: str) -> int:
+        count = Counter(s)
+        n = len(s)
+        required = n // 4
+
+        if(count['Q'] == required and count['W'] == required and count['E'] == required and count['R'] == required):
+            return 0
+
+        left = 0
+        result = n
+        for right in range(n):
+            count[s[right]] -= 1
+            while(left < n and count['Q'] <=required and count['W'] <= required and count['R'] <= required and count['E'] <= required):
+                
+                current_length = right - left + 1
+                result = min(result, current_length)
+                count[s[left]] += 1
+                left += 1
+        
+        return result
+
+
+    
