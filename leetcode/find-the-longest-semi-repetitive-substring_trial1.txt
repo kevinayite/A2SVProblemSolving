@@ -1,0 +1,16 @@
+class Solution:
+    def longestSemiRepetitiveSubstring(self, s: str) -> int:
+        if len(s) == 1:
+            return 1
+        left = 0
+        right = 1
+        answer = 0
+        count = 0
+        while right <len(s):
+            count += (s[right] ==s[right -1]) # True return 1 so here we are adding 1
+            while left <= right and count > 1: # here enter when it is 2,3,4 etc
+                count -= (s[left] == s[left + 1]) # if it is True we are substracting one
+                left += 1
+            answer = max(answer, right - left + 1)
+            right += 1
+        return answer
