@@ -1,0 +1,16 @@
+class Solution(object):
+    def reductionOperations(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        total_operations = 0  # total number of operations needed
+        steps_needed = 0      # how many times we need to reduce smaller numbers
+
+        nums.sort()  # sort the array in ascending order
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i-1]:
+                steps_needed += 1  # every time we see a new larger number, increment steps_needed
+            total_operations += steps_needed  # add steps_needed to total_operations for this element
+
+        return total_operations        
