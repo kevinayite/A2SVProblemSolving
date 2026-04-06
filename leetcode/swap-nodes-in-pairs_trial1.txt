@@ -1,0 +1,25 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(0, head)
+        previous, current = dummy, head
+
+        while current and current.next:
+            nextPair = current.next.next # pointing to the next pair to reverse
+            second = current.next 
+
+            # let's reverse the order now 
+            second.next = current
+            current.next = nextPair
+            previous.next = second
+
+            # updating our pointers
+            previous = current 
+            current = nextPair
+        return dummy.next
+
+        
