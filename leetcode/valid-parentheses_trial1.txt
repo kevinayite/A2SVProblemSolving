@@ -1,0 +1,15 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        my_dict = {"(" : ")", "{" : "}", "[" : "]" }
+        for i in range(len(s)):
+            if s[i] in my_dict.keys():
+                stack.append(s[i])
+            else:
+                if not stack:
+                    return False # we have a closing parenthesis and the stack is empty, so it is false
+                a = stack.pop() # Remove the last opener from the stack to check it against the current closer
+                if s[i] != my_dict[a]: # if there is no match between 
+                    return False
+        return stack == [] # If any openers are left over, it means they were never closed.
+        
