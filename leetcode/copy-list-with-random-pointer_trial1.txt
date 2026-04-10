@@ -1,0 +1,26 @@
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
+
+class Solution:
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        oldToCopy = {None: None} # Initializing with {None: None} handles the case where .next or .random is null
+        current = head
+        while current: 
+            copy = Node(current.val) # creating a node with the value only for the moment
+            oldToCopy[current] = copy # updating our dictionary
+            current = current.next
+
+        current = head # let's start at the head again
+        while current:
+            copy = oldToCopy[current]
+            copy.next = oldToCopy[current.next]
+            copy.random = oldToCopy[current.random]
+            current = current.next # moving to the next one
+        return oldToCopy[head]
+        
