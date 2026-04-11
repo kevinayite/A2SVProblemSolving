@@ -1,0 +1,17 @@
+from collections import deque, Counter
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        count = Counter()
+        queue = deque()
+        for i, char in enumerate(s):
+            count[char] += 1 # update frequency
+            queue.append(i)
+            
+            while queue and count[s[queue[0]]] > 1:
+                queue.popleft()
+        if queue:
+            return queue[0]
+        else:
+            return -1
+
+        
