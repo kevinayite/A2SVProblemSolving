@@ -1,0 +1,23 @@
+from collections import deque
+class Solution:
+    def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
+
+        queue = deque()
+        for i in range(len(tickets)):
+            queue.append(i)
+        result = 0
+        while queue:
+            result += 1
+            start = queue.popleft()
+            tickets[start] -= 1
+            if k == start and tickets[start] == 0: # this is the core of the code
+            # as our person is at k when start == k and buy enough tickets return
+                return result
+            if tickets[start] != 0:
+                queue.append(start)
+        return result
+
+
+            
+
+            
