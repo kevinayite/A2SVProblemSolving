@@ -1,0 +1,27 @@
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack = []
+        for element in tokens:
+            if element == "+":
+                stack.append(stack.pop() + stack.pop())
+            elif element == "*":
+                stack.append(stack.pop() * stack.pop())
+            elif element == "-":
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(b - a)
+            elif element == "/":
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(int(b / a))
+            else:
+                stack.append(int(element)) # this part of the code is very important
+                # as it help us to cast each element
+        return stack[0]
+
+
+
+                
+            
+            
+        
