@@ -1,0 +1,15 @@
+class Solution:
+    def countGoodNumbers(self, n: int) -> int:
+        mod = (10 ** 9) + 7
+        def fast_pow(base, exp):
+            if exp == 0:
+                return 1
+            half = fast_pow(base, exp //2)
+            result = (half * half) % mod
+            if exp % 2 == 1:
+                return (result * base) % mod
+            else:
+                return result
+        even_pos = (n + 1) // 2
+        odd_pos = n // 2
+        return (fast_pow(5, even_pos) * fast_pow(4, odd_pos)) % mod
