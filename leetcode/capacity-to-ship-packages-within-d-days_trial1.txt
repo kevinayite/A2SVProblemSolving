@@ -1,0 +1,25 @@
+class Solution:
+    def shipWithinDays(self, weights: List[int], days: int) -> int:
+        low = max(weights)
+        high = sum(weights)
+        answer = high # as you are fiding the minimum
+
+        def canShip(capacity):
+            ships, currCapacity = 1, capacity
+            for w in weights:
+                if currCapacity - w < 0:
+                    ships += 1
+                    currCapacity = capacity
+                currCapacity -= w
+            return ships <= days
+        while low <= high :
+            capacity = (low + high) // 2
+            if canShip(capacity):
+                answer = min(answer, capacity)
+                high = capacity - 1 # as the capacity works, let's find a smaller one
+            else:
+                low = capacity + 1 # # as the capacity doesn't work, let's find a smaller one
+        return answer
+
+
+        
