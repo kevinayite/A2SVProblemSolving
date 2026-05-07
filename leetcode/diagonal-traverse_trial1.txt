@@ -1,0 +1,20 @@
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        diagonals = {}
+        m, n = len(mat), len(mat[0])
+
+        for i in range(m):
+            for j in range(n):
+                d = i + j
+                if d not in diagonals:
+                    diagonals[d] = []
+                diagonals[d].append(mat[i][j])
+        answer = []
+        # traversing the matrice
+        for d in range(m + n - 1):
+            if d % 2 == 0: # we need to reverse to get the diaginal order
+                answer.extend(diagonals[d][::-1])
+            else:
+                answer.extend(diagonals[d])
+        return answer
+        
